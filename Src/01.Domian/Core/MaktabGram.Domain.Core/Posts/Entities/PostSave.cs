@@ -8,5 +8,7 @@ namespace MaktabGram.Domain.Core.Posts.Entities
         public User User { get; set; }
         public int PostId { get; set; }
         public Post Post { get; set; }
+
+        public DateTime CreatedAt { get; set; }
     }
 }

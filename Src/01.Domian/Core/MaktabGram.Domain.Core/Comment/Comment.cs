@@ -14,7 +14,7 @@ namespace MaktabGram.Domain.Core.Comments
         public Post Post { get; set; }
         public int PostId { get; set; }
 
-        public List<CommentLike> CommentLikes { get; set; }
+        public List<CommentLike> CommentLikes { get; set; } = [];
 
 
     }

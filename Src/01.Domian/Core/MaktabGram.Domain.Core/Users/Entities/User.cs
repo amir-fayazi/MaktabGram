@@ -1,6 +1,6 @@
 ﻿
 using MaktabGram.Domain.Core._common;
-using MaktabGram.Domain.Core.Comment;
+using MaktabGram.Domain.Core.Comments;
 using MaktabGram.Domain.Core.Posts.Entities;
 using MaktabGram.Domain.Core.Users.ValueObjects;
 
