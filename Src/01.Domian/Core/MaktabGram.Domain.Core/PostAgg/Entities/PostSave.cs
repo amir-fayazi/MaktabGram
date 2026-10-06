@@ -13,7 +13,7 @@ public class PostSave
     #region Navigation Properties
 
     public int UserId { get; set; }
-    public User User { get; set; } = null!;
+    public User SavedBy { get; set; } = null!;
 
     public int PostId { get; set; }
     public Post Post { get; set; } = null!;
