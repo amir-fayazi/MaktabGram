@@ -1,15 +1,22 @@
-﻿using MaktabGram.Domain.Core.Users.Entities;
+using MaktabGram.Domain.Core.UserAgg.Entities;
 
-namespace MaktabGram.Domain.Core.Comments.Entities
+namespace MaktabGram.Domain.Core.CommentAgg.Entities;
+
+public class CommentLike
 {
-    public class CommentLike
-    {
-        public User User { get; set; }
-        public int UserId { get; set; }
+    #region Properties
 
-        public int CommentId { get; set; }
-        public Comment Comment { get; set; }
+    public DateTime CreatedAt { get; set; }
 
-        public DateTime CreatedAt { get; set; }
-    }
+    #endregion
+
+    #region Navigation Properties
+
+    public int UserId { get; set; }
+    public User User { get; set; } = null!;
+
+    public int CommentId { get; set; }
+    public Comment Comment { get; set; } = null!;
+
+    #endregion
 }

@@ -1,27 +1,30 @@
-﻿using MaktabGram.Domain.Core._common;
-using MaktabGram.Domain.Core.Posts.Entities;
-using MaktabGram.Domain.Core.Users.Entities;
+using MaktabGram.Domain.Core.PostAgg.Entities;
+using MaktabGram.Domain.Core.UserAgg.Entities;
+using MaktabGram.Domain.Core._common;
 
-namespace MaktabGram.Domain.Core.Comments.Entities
+namespace MaktabGram.Domain.Core.CommentAgg.Entities;
+
+public class Comment : BaseEntity
 {
-    public class Comment : BaseEntity
-    {
-        public string Text { get; set; }
+    #region Properties
 
-        public User User { get; set; }
-        public int UserId { get; set; }
+    public string Text { get; set; } = string.Empty;
 
-        public Post Post { get; set; }
-        public int PostId { get; set; }
+    #endregion
 
+    #region Navigation Properties
 
-        public List<CommentLike> CommentLikes { get; set; } = [];
+    public int UserId { get; set; }
+    public User User { get; set; } = null!;
 
-        public int? ParentCommentId { get; set; }
-        public Comment? ParentComment { get; set; }
+    public int PostId { get; set; }
+    public Post Post { get; set; } = null!;
 
-        public List<Comment> Replies { get; set; } = [];
+    public List<CommentLike> CommentLikes { get; set; } = new();
 
+    public int? ParentCommentId { get; set; }
+    public Comment? ParentComment { get; set; }
+    public List<Comment> Replies { get; set; } = new();
 
-    }
+    #endregion
 }

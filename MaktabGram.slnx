@@ -4,6 +4,9 @@
   <Folder Name="/Src/01.Domain/Core/">
     <Project Path="Src/01.Domian/Core/MaktabGram.Domain.Core/MaktabGram.Domain.Core.csproj" Id="4bf60ee2-6035-4f0d-8aae-18463bb483d8" />
   </Folder>
+  <Folder Name="/Src/03.Infrastructure/">
+    <Project Path="Src/03.Infrastructure/MaktabGram.Infrastructure.EfCore/MaktabGram.Infrastructure.EfCore.csproj" Id="8417f882-7d8b-442e-8242-5d864e9070c9" />
+  </Folder>
   <Folder Name="/Src/04.Presentation/">
     <Project Path="Src/04.Presentation/MaktabGram.Presentation.Console/MaktabGram.Presentation.Console.csproj" Id="544fddb2-d59f-48a5-9fd7-61c176cc05c5" />
   </Folder>

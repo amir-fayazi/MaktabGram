@@ -1,16 +1,22 @@
-﻿
+using MaktabGram.Domain.Core.UserAgg.Entities;
 
-using MaktabGram.Domain.Core.Users.Entities;
+namespace MaktabGram.Domain.Core.FollowAgg.Entities;
 
-namespace MaktabGram.Domain.Core.Follow.Entities
+public class Follow
 {
-    public class Follow
-    {
-        public User Follower { get; set; }
-        public int FollowerId { get; set; }
-        public User Followed { get; set; }
-        public int FollowedId { get; set; }
+    #region Properties
 
-        public DateTime FollowedAt { get; set; }
-    }
+    public DateTime FollowedAt { get; set; }
+
+    #endregion
+
+    #region Navigation Properties
+
+    public int FollowerId { get; set; }
+    public User FollowerUser { get; set; } = null!;
+
+    public int FollowedId { get; set; }
+    public User FollowedUser { get; set; } = null!;
+
+    #endregion
 }
