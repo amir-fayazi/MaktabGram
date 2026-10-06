@@ -7,9 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Users\Dtos\" />
-    <Folder Include="Users\Contracts\" />
-    <Folder Include="Users\Enum\" />
+    <Folder Include="UserAgg\Dtos\" />
+    <Folder Include="UserAgg\Contracts\" />
   </ItemGroup>
 
 </Project>

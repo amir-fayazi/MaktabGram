@@ -1,6 +1,6 @@
 ﻿using MaktabGram.Domain.Core.Users.Entities;
 
-namespace MaktabGram.Domain.Core.Comments
+namespace MaktabGram.Domain.Core.Comments.Entities
 {
     public class CommentLike
     {

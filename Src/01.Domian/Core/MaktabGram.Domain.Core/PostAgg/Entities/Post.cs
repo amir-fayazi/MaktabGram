@@ -1,6 +1,5 @@
-﻿
-using MaktabGram.Domain.Core.Comments;
-using MaktabGram.Domain.Core._common;
+﻿using MaktabGram.Domain.Core._common;
+using MaktabGram.Domain.Core.Comments.Entities;
 using MaktabGram.Domain.Core.Users.Entities;
 
 namespace MaktabGram.Domain.Core.Posts.Entities
@@ -17,5 +16,6 @@ namespace MaktabGram.Domain.Core.Posts.Entities
         public List<Comment> Comments { get; set; } = new();
         public List<PostLike> PostLikes { get; set; } = new();
         public List<PostSave> PostSaves { get; set; } = new();
+        public List<PostTag> PostTags { get; set; } = new();
     }
 }

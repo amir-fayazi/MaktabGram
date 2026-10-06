@@ -2,7 +2,7 @@
 using MaktabGram.Domain.Core.Posts.Entities;
 using MaktabGram.Domain.Core.Users.Entities;
 
-namespace MaktabGram.Domain.Core.Comments
+namespace MaktabGram.Domain.Core.Comments.Entities
 {
     public class Comment : BaseEntity
     {
@@ -14,7 +14,13 @@ namespace MaktabGram.Domain.Core.Comments
         public Post Post { get; set; }
         public int PostId { get; set; }
 
+
         public List<CommentLike> CommentLikes { get; set; } = [];
+
+        public int? ParentCommentId { get; set; }
+        public Comment? ParentComment { get; set; }
+
+        public List<Comment> Replies { get; set; } = [];
 
 
     }
