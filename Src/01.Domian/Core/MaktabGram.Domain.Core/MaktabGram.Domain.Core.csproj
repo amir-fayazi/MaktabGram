@@ -7,8 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UserAgg\Dtos\" />
-    <Folder Include="UserAgg\Contracts\" />
+    <Compile Remove="UserAgg\Contracts\**" />
+    <Compile Remove="UserAgg\Dtos\**" />
+    <EmbeddedResource Remove="UserAgg\Contracts\**" />
+    <EmbeddedResource Remove="UserAgg\Dtos\**" />
+    <None Remove="UserAgg\Contracts\**" />
+    <None Remove="UserAgg\Dtos\**" />
   </ItemGroup>
 
 </Project>
