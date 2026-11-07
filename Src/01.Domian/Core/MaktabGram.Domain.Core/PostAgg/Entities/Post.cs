@@ -9,6 +9,7 @@ public class Post : BaseEntity
     #region Properties
 
     public string Caption { get; set; } = string.Empty;
+    public bool OpenComment { get; set; }
     public string MediaUrl { get; set; } = string.Empty;
 
     #endregion
@@ -20,8 +21,9 @@ public class Post : BaseEntity
 
     public List<Comment> Comments { get; set; } = new();
     public List<PostLike> PostLikes { get; set; } = new();
-    public List<PostSave> PostSaves { get; set; } = new();
+    public List<PostSave> SavedByUsers { get; set; } = new();
     public List<PostTag> TaggedUsers { get; set; } = new();
 
     #endregion
 }
+

@@ -6,7 +6,7 @@ public class PostSave
 {
     #region Properties
 
-    public DateTime CreatedAt { get; set; }
+    public DateTime SavedAt { get; set; }
 
     #endregion
 

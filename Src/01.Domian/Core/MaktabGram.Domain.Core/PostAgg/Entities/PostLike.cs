@@ -1,3 +1,4 @@
+using MaktabGram.Domain.Core._common;
 using MaktabGram.Domain.Core.UserAgg.Entities;
 
 namespace MaktabGram.Domain.Core.PostAgg.Entities;
@@ -6,7 +7,8 @@ public class PostLike
 {
     #region Properties
 
-    public DateTime CreatedAt { get; set; }
+    public DateTime LikedAt { get; set; }
+
 
     #endregion
 

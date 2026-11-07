@@ -10,22 +10,47 @@ namespace MaktabGram.Infrastructure.EfCore.Configurations
         public void Configure(EntityTypeBuilder<User> builder)
         {
 
+            builder.ToTable("Users")
+                   .HasKey(x => x.Id);
+
+
+            builder.Property(x => x.Username)
+                   .HasMaxLength(100)
+                   .IsRequired();
+
+            builder.Property(x => x.PasswordHash)
+                 .HasMaxLength(100)
+                 .IsRequired();
+
+            builder.OwnsOne(x => x.Mobile, mobileBuilder =>
+            {
+                mobileBuilder.Property(m => m.Value)
+                .HasColumnName("Mobile")
+                .HasMaxLength(11)
+                .IsRequired();
+            });
+                
+
+
             builder.HasOne(x => x.Profile)
                 .WithOne(x => x.User)
-                .HasForeignKey<UserProfile>(x => x.UserId);
+                .HasForeignKey<UserProfile>(x => x.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasMany(x => x.Followers)
-                .WithOne(x => x.FollowedUser)
-                .HasForeignKey(x => x.FollowedId);
+            builder.HasMany(u => u.Followers)
+                .WithOne(f => f.FollowedUser)
+                .HasForeignKey(x => x.FollowedId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.Followings)
                 .WithOne(x => x.FollowerUser)
-                .HasForeignKey(x => x.FollowerId);
+                .HasForeignKey(x => x.FollowerId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.Comments)
                 .WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.CommentLikes)
                 .WithOne(x => x.User)

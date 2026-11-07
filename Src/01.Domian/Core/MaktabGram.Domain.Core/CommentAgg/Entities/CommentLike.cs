@@ -6,7 +6,7 @@ public class CommentLike
 {
     #region Properties
 
-    public DateTime CreatedAt { get; set; }
+    public DateTime LikedAt { get; set; }
 
     #endregion
 

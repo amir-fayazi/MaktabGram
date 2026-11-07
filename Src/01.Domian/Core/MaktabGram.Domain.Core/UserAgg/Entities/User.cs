@@ -1,4 +1,4 @@
-using MaktabGram.Domain.Core.CommentAgg.Entities;
+﻿using MaktabGram.Domain.Core.CommentAgg.Entities;
 using MaktabGram.Domain.Core.FollowAgg.Entities;
 using MaktabGram.Domain.Core.PostAgg.Entities;
 using MaktabGram.Domain.Core.UserAgg.ValueObjects;
@@ -19,8 +19,8 @@ public class User : BaseEntity
     #region Properties
 
     public string Username { get; set; } = string.Empty;
-    public Mobile Mobile { get; set; } = null!;
     public string PasswordHash { get; set; } = string.Empty;
+    public Mobile Mobile { get; set; } = null!;
 
     public bool IsActive { get; private set; }
     public bool VerifiedBadge { get; private set; }
@@ -48,6 +48,19 @@ public class User : BaseEntity
 
     public void Activate() => IsActive = true;
     public void Deactivate() => IsActive = false;
-
+    public void SetVerifiedBadge()
+    {
+        if(CreatedAt <= DateTime.Now.AddYears(-2)
+            && IsActive
+            && Followers.Count > 100000
+            )
+        {
+            VerifiedBadge = true;
+        }
+        else
+        {
+            throw new Exception("شما شرایط کافی برای گرفتن تیک آبی رو ندارید");
+        }
+    }
     #endregion
 }
