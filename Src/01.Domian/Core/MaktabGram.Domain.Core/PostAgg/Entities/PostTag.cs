@@ -5,7 +5,7 @@ namespace MaktabGram.Domain.Core.PostAgg.Entities;
 public class PostTag
 {
     #region Properties
-
+    public int Id { get; set; }
     public DateTime CreatedAt { get; set; }
 
     #endregion

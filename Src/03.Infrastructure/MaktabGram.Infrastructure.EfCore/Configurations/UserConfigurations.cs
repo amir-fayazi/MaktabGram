@@ -30,7 +30,7 @@ namespace MaktabGram.Infrastructure.EfCore.Configurations
                 .IsRequired();
             });
                 
-
+           
 
             builder.HasOne(x => x.Profile)
                 .WithOne(x => x.User)
