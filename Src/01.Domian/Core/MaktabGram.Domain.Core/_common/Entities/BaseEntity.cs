@@ -1,6 +1,4 @@
-﻿
-
-namespace MaktabGram.Domain.Core._common
+﻿namespace MaktabGram.Domain.Core._common.Entities
 {
     public abstract class BaseEntity
     {

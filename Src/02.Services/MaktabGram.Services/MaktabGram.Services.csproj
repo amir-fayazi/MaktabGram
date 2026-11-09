@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\00.MaktabGram.Framwork\MaktabGram.Framework\MaktabGram.Framework.csproj" />
+    <ProjectReference Include="..\..\01.Domian\Core\MaktabGram.Domain.Core\MaktabGram.Domain.Core.csproj" />
+    <ProjectReference Include="..\..\03.Infrastructure\MaktabGram.Infrastructure.EfCore\MaktabGram.Infrastructure.EfCore.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,6 +1,6 @@
 using MaktabGram.Domain.Core.CommentAgg.Entities;
 using MaktabGram.Domain.Core.UserAgg.Entities;
-using MaktabGram.Domain.Core._common;
+using MaktabGram.Domain.Core._common.Entities;
 
 namespace MaktabGram.Domain.Core.PostAgg.Entities;
 

@@ -2,7 +2,7 @@
 using MaktabGram.Domain.Core.FollowAgg.Entities;
 using MaktabGram.Domain.Core.PostAgg.Entities;
 using MaktabGram.Domain.Core.UserAgg.ValueObjects;
-using MaktabGram.Domain.Core._common;
+using MaktabGram.Domain.Core._common.Entities;
 
 namespace MaktabGram.Domain.Core.UserAgg.Entities;
 
@@ -10,7 +10,7 @@ public class User : BaseEntity
 {
     #region Constructors
 
-    private User()
+    public User()
     {
     }
 
@@ -18,7 +18,7 @@ public class User : BaseEntity
 
     #region Properties
 
-    public string Username { get; set; } = string.Empty;
+    public string? Username { get; set; } = string.Empty;
     public string PasswordHash { get; set; } = string.Empty;
     public Mobile Mobile { get; set; } = null!;
 
