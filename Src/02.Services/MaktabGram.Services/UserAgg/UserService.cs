@@ -1,6 +1,7 @@
 ﻿using MaktabGram.Domain.Core._common.Entities;
 using MaktabGram.Domain.Core.UserAgg.Contracts;
 using MaktabGram.Domain.Core.UserAgg.Dtos;
+using MaktabGram.Domain.Core.UserAgg.Entities;
 using MaktabGram.Framework;
 using MaktabGram.Infrastructure.EfCore.Repositories.UserAgg;
 using System;
@@ -21,31 +22,26 @@ namespace MaktabGram.Services.UserAgg
         {
             var login = userRepository.Login(mobile, password.ToMd5Hex());
 
-            if (login.IsSuccess)
-            {
-                var isActive = userRepository.IsActive(mobile);
+            if (login is null)
+                return Result<bool>.Failure("نام کاربری یا رمزعبور اشتباه است.", false);
 
-                if (isActive.IsSuccess)
-                    return new Result<bool> { IsSuccess = true, Message = login.Message, Data = isActive.IsSuccess };
+            if(!login.IsActive)
+                return Result<bool>.Failure("کاربر با این شماره موبایل فعال نمی باشد.", false);
 
-                return new Result<bool> { IsSuccess = false, Message = isActive.Message, Data = isActive.IsSuccess };
-            }
-
-            return new Result<bool> { IsSuccess = false, Message = login.Message, Data = login.IsSuccess };
-
+            return Result<bool>.Success("لاگین با موفقیت انجام شد.");/////////
         }
 
         public Result<bool> Register(RegisterUserInputDto model)
         {
             var mobileExist = userRepository.MobileExists(model.Mobile);
 
-            if(mobileExist.IsSuccess)
-                return new Result<bool> { IsSuccess = false, Message = mobileExist.Message, Data = mobileExist.IsSuccess };
-
+            if(mobileExist)
+                return Result<bool>.Failure("کاربر با این شماره موبایل موجود می باشد.", false);
 
             model.Password = model.Password.ToMd5Hex();
 
-            return userRepository.Register(model);
+            //if (userRepository.Register(model))
+                return Result<bool>.Success("ثبت نام با موفقیت انجام شد.", true);
         }
     }
 }

@@ -15,5 +15,6 @@
   </Folder>
   <Folder Name="/Src/04.Presentation/">
     <Project Path="Src/04.Presentation/MaktabGram.Presentation.Console/MaktabGram.Presentation.Console.csproj" Id="544fddb2-d59f-48a5-9fd7-61c176cc05c5" />
+    <Project Path="Src/04.Presentation/MaktabGram.Presentation.MVC/MaktabGram.Presentation.MVC/MaktabGram.Presentation.MVC.csproj" Id="58131c02-1196-47eb-84bc-1bd64bd66a6f" />
   </Folder>
 </Solution>
