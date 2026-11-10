@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model RegisterViewModel
 @{
 	Layout = "";
 }
@@ -54,19 +52,37 @@
 			<p class="text-gray-500 text-sm">همین حالا به ما بپیوندید!</p>
 		</header>
 
-		<form id="signup-form" class="space-y-5" onsubmit="handleSignup(event)">
+		<form
+			method="post"
+			asp-controller="Account"
+			asp-action="Register"
+			id="signup-form" class="space-y-5" onsubmit="handleSignup(event)">
 
 			<div>
-				<label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">نام و نام خانوادگی:</label>
-				<input type="text"
-					   id="full-name"
-					   placeholder="مثال: مسعود مالکی"
+				<label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">نام :</label>
+				<input 
+					name="firstName"
+					type="text"
+					   id="first-name"
+					   placeholder="مثال: مسعود "
+					   class="w-full p-3 border border-gray-300 rounded-lg text-right focus:ring-2 focus:ring-purple-400 focus:border-purple-500 transition duration-150"
+					   required>
+			</div>
+			<div>
+				<label for="last-name" class="block text-sm font-medium text-gray-700 mb-1"> نام خانوادگی:</label>
+				<input 
+					name="lastName"
+					type="text"
+					   id="last-name"
+					   placeholder="مثال:  مالکی"
 					   class="w-full p-3 border border-gray-300 rounded-lg text-right focus:ring-2 focus:ring-purple-400 focus:border-purple-500 transition duration-150"
 					   required>
 			</div>
 			<div>
 				<label for="mobile-number" class="block text-sm font-medium text-gray-700 mb-1">شماره موبایل:</label>
-				<input type="tel"
+				<input 
+					name="Mobile"
+					type="tel"
 					   id="mobile-number"
 					   placeholder="مثال: 09121234567"
 					   class="w-full p-3 border border-gray-300 rounded-lg text-right focus:ring-2 focus:ring-purple-400 focus:border-purple-500 transition duration-150"
@@ -75,7 +91,8 @@
 
 			<div>
 				<label for="username" class="block text-sm font-medium text-gray-700 mb-1">نام کاربری (اختیاری):</label>
-				<input type="text"
+				<input name="username"
+					type="text"
 					   id="username"
 					   placeholder="مثال: masoud_maleki"
 					   class="w-full p-3 border border-gray-300 rounded-lg text-right focus:ring-2 focus:ring-purple-400 focus:border-purple-500 transition duration-150">
@@ -83,7 +100,8 @@
 
 			<div>
 				<label for="password" class="block text-sm font-medium text-gray-700 mb-1">رمز عبور:</label>
-				<input type="password"
+				<input name="password"
+					type="password"
 					   id="password"
 					   placeholder="حداقل ۶ کاراکتر"
 					   class="w-full p-3 border border-gray-300 rounded-lg text-right focus:ring-2 focus:ring-purple-400 focus:border-purple-500 transition duration-150"
@@ -96,7 +114,8 @@
 			</button>
 		</form>
 
-		<div id="message-box" class="mt-4 text-center text-sm">
+		<div id="message-box" class="mt-4 text-center text-sm text-red-600">
+			@ViewBag.RegisterError
 		</div>
 
 		<div class="mt-8 text-center text-sm">

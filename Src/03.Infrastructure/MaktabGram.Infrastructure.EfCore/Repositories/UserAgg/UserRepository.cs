@@ -20,19 +20,22 @@ namespace MaktabGram.Infrastructure.EfCore.Repositories.UserAgg
 
         public bool IsActive(string mobile)
         {
-            return dbContext.Users.Any(u => u.Mobile == Mobile.Create(mobile) && u.IsActive);
+            var normalizedMobile = Mobile.Create(mobile).Value;
+
+            return dbContext.Users.Any(u => u.Mobile.Value == normalizedMobile && u.IsActive);
         }
 
         public bool MobileExists(string mobile)
         {
-            return dbContext.Users.Any(u => u.Mobile == Mobile.Create(mobile));
+            var normalizedMobile = Mobile.Create(mobile).Value;
+            return dbContext.Users.Any(u => u.Mobile.Value == normalizedMobile);
         }
 
         public UserLoginOutputDto? Login(string mobile, string password)
         {
             return dbContext.Users.Where(u => u.Mobile.Value == mobile && u.PasswordHash == password)
                                   .Select(x => new UserLoginOutputDto
-                                   {
+                                  {
                                       Id = x.Id,
                                       FirstName = x.Profile.FirstName,
                                       LastName = x.Profile.LastName,
@@ -40,9 +43,10 @@ namespace MaktabGram.Infrastructure.EfCore.Repositories.UserAgg
                                       Mobile = x.Mobile.Value,
                                       Username = x.Username,
                                       IsActive = x.IsActive
-                                   })
+                                  })
+                                  .ToList()
                                   .FirstOrDefault();
-                                 
+
 
         }
 

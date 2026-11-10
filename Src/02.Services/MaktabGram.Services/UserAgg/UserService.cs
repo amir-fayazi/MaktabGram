@@ -40,8 +40,9 @@ namespace MaktabGram.Services.UserAgg
 
             model.Password = model.Password.ToMd5Hex();
 
-            //if (userRepository.Register(model))
-                return Result<bool>.Success("ثبت نام با موفقیت انجام شد.", true);
+            userRepository.Register(model);
+
+            return Result<bool>.Success("ثبت نام با موفقیت انجام شد.", true);
         }
     }
 }

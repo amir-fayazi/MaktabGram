@@ -15,8 +15,8 @@ namespace MaktabGram.Infrastructure.EfCore.Configurations
 
 
             builder.Property(x => x.Username)
-                   .HasMaxLength(100)
-                   .IsRequired();
+                   .HasMaxLength(100);
+                   //.IsRequired();
 
             builder.Property(x => x.PasswordHash)
                  .HasMaxLength(100)
